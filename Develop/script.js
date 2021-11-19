@@ -59,20 +59,6 @@ var uppercaseLetters = [
   "Z"
 ];
 
-// Number array
-var numberList = [
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9
-];
-
 // special character array
 var specialChar = [
   "!",
@@ -110,7 +96,11 @@ var specialChar = [
   " "
 ];
 
- // this will only allow random numbers 0-9
+
+
+
+var generatePassword = function(x){
+  // this will allow random selections from specialChar array
   var randChar = specialChar[Math.floor(Math.random() * specialChar.length)];
   console.log(randChar);
 
@@ -118,17 +108,13 @@ var specialChar = [
   var randNum = Math.floor(Math.random() * 9);
   console.log(randNum);
 
-  // this will only allow random numbers 0-9
+  // this will allow random selections from the uppercaseLetters array
   var randUpper = uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
   console.log(randUpper);
 
-  // this will only allow random numbers 0-9
+  // this will allow random selections from the lowercaseLetters array
   var randLower = lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
   console.log(randLower);
-
-
-var generatePassword = function(){
- 
 };
 
 
