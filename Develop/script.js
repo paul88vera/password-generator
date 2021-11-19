@@ -1,5 +1,5 @@
 // Assignment code here
-//  lowercase letter array
+// lowercase letter array
 var lowercaseLetters = [
   "a",
   "b",
@@ -59,6 +59,7 @@ var uppercaseLetters = [
   "Z"
 ];
 
+// Number array
 var numberList = [
   0,
   1,
@@ -109,9 +110,27 @@ var specialChar = [
   " "
 ];
 
+ // this will only allow random numbers 0-9
+  var randChar = specialChar[Math.floor(Math.random() * specialChar.length)];
+  console.log(randChar);
+
+  // this will only allow random numbers 0-9
+  var randNum = Math.floor(Math.random() * 9);
+  console.log(randNum);
+
+  // this will only allow random numbers 0-9
+  var randUpper = uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
+  console.log(randUpper);
+
+  // this will only allow random numbers 0-9
+  var randLower = lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
+  console.log(randLower);
 
 
-var generatePassword = function(){};
+var generatePassword = function(){
+ 
+};
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
