@@ -118,8 +118,27 @@ console.log(randUpper);
 var randLower = lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
 console.log(randLower);
 
+/* GENERATE PASSWORD */
 
-/** GIVEN SCRIPT **/
+var generatePassword = function(){
+  // asks user to select if special characters are wanted in generator
+  var confirmSpecCharacters = window.confirm("Would you like to have special characters in your password?");
+
+  // asks user to select if numbers are wanted in generator
+  var confirmNumbers = window.confirm("Would you like to have numbers in your password?");
+
+  // asks user to select if upperCase letters are wanted in generator
+  var confirmUpperCase = window.confirm("Would you like to have uppercase letters in your password?");
+
+  // asks user to select if lowercase letters are wanted in generator
+  var confirmLowerCase = window.confirm("Would you like to have lowercase letters in your password?")
+
+  // how long should the password be from 4-40 characters
+  var passwordLength = window.prompt("How long would you like your password to be?");
+
+};
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
