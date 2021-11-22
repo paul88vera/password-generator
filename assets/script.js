@@ -117,9 +117,8 @@ var randomArray = [
 
 ];
 
-/* GENERATE PASSWORD */
+/* PASSWORD LENGTH VERIFICATION */
 
-// Password Length Verification Function
 var passwordLength = function(){
 
     var passwordTotal = prompt("How long would you like your password to be? 4-40 Characters");
@@ -138,6 +137,7 @@ var passwordLength = function(){
 
   };
 
+/* GENERATE PASSWORD */
 
 generatePassword = function(){
   
