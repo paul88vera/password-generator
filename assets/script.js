@@ -1,5 +1,3 @@
-// Assignment code here
-
 /* CHARACTER ARRAYS */
 
 // uppercase letter array
