@@ -117,57 +117,76 @@ var randomArray = [
 
 ];
 
-
-
 /* GENERATE PASSWORD */
 
+// Password Length Verification Function
+var passwordLength = function(){
+
+    var passwordTotal = prompt("How long would you like your password to be? 4-40 Characters");
+
+    if  (passwordTotal === "" || passwordTotal === null) {
+      window.alert("You need to provide a valid number. Please try again. 4-40 Characters");
+      return passwordLength();
+    }
+    else if (passwordTotal >= 4 && passwordTotal <= 40) {
+      console.log("Your password total length is: " + passwordTotal);
+    }
+    else {
+      window.alert("You need to provide a valid number. Please try again. 4-40 Characters");
+      return passwordLength();
+    }
+
+  };
+
+
 generatePassword = function(){
-// Criteria
-// asks user to select if special characters are wanted in generator
-var confirmSpecCharacters = window.confirm("Would you like to have special characters in your password?");
-if (confirmSpecCharacters === true){
-  console.log(randomArray[0]);
-} else {
-  randomArray[0] = "";
-}
+  
+  passwordLength(); 
 
-
-// asks user to select if numbers are wanted in generator
-var confirmNumbers = window.confirm("Would you like to have numbers in your password?");
-if (confirmNumbers === true) {
-  console.log(randomArray[1]);
-} else {
-  randomArray[1] = "";
-}
-
-// asks user to select if upperCase letters are wanted in generator
-var confirmUpperCase = window.confirm("Would you like to have uppercase letters in your password?");
-if (confirmUpperCase === true) {
-  console.log(randomArray[2]);
-} else {
-  randomArray[2] = "";
-}
-
-// asks user to select if lowercase letters are wanted in generator
-var confirmLowerCase = window.confirm("Would you like to have lowercase letters in your password?");
-if (confirmLowerCase === true) {
-  console.log(randomArray[3]);
-} else {
-  randomArray[3] = "";
-}
-
-// how long should the password be from 4-40 characters
-var passwordLength = window.prompt("How long would you like your password to be? 4-40 Characters");
-  if (passwordLength >= 4 && passwordLength <= 40) {
-    console.log(passwordLength);
+  // Criteria
+  // asks user to select if special characters are wanted in generator
+  var confirmSpecCharacters = window.confirm("Would you like to have special characters in your password?");
+  if (confirmSpecCharacters === true){
+    console.log("You selected to have special characters added to your password.");
   } else {
-    passwordLength;
+    console.log("Got it! No special characters.");
   }
+
+  // asks user to select if numbers are wanted in generator
+  var confirmNumbers = window.confirm("Would you like to have numbers in your password?");
+  if (confirmNumbers === true) {
+    console.log("You selected to have numbers added to your password.");
+  } else {
+    console.log("Got it! No numbers.");
+  }
+
+  // asks user to select if upperCase letters are wanted in generator
+  var confirmUpperCase = window.confirm("Would you like to have uppercase letters in your password?");
+  if (confirmUpperCase === true) {
+    console.log("You selected to have uppercase characters added to your password.");
+  } else {
+    console.log("Got it! No uppercase characters.");
+  }
+
+  // asks user to select if lowercase letters are wanted in generator
+  var confirmLowerCase = window.confirm("Would you like to have lowercase letters in your password?");
+  if (confirmLowerCase === true) {
+    console.log("You selected to have lowercase characters added to your password.");
+  } else {
+    console.log("Got it! No lowercase characters.");
+  }
+
+  var confirmPassword = window.confirm("Are you ready to receive your password?");
+  if (confirmPassword === true) {
+    console.log("Here ya go!");
+    /*
+    * function goes here to call completed password
+     */
+  } else {
+    window.alert("Not a problem, maybe next time!");
+  }
+
 };
-
-
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
