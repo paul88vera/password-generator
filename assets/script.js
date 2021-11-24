@@ -110,6 +110,9 @@ var randomArray = [
   // 2 - this will allow random selections from the uppercaseLetters array
   uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)],
 
+  // 3 - this will allow random selections from the lowercaseLetters array
+  lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)],
+
 ];
 
 
