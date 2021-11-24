@@ -110,42 +110,42 @@ var randomArray = [
   // 2 - this will allow random selections from the uppercaseLetters array
   uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)],
 
-  // 3 - this will allow random selections from the lowercaseLetters array
-  lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)],
-
 ];
+
+
 
 /* GENERATE PASSWORD */
 
-// Password Length Verification Function
-var passwordLength = function(){
+var generatePassword = function(specialCharacter, confirmNumbers, confirmUpperCase, confirmLowerCase){
+ 
+  /* PASSWORD LENGTH VERIFICATION */
+  var passwordLength = function() {var passwordTotal = prompt("How long would you like your password to be? 4-40 Characters");
 
-    var passwordTotal = prompt("How long would you like your password to be? 4-40 Characters");
-
-    if  (passwordTotal === "" || passwordTotal === null) {
-      window.alert("You need to provide a valid number. Please try again. 4-40 Characters");
-      return passwordLength();
-    }
-    else if (passwordTotal >= 4 && passwordTotal <= 40) {
-      console.log("Your password total length is: " + passwordTotal);
-    }
-    else {
-      window.alert("You need to provide a valid number. Please try again. 4-40 Characters");
-      return passwordLength();
-    }
-
+  if  (passwordTotal === "" || passwordTotal === null) {
+    window.alert("You need to provide a valid number. Please try again. 4-40 Characters");
+    return passwordLength();
+  }
+  else if (passwordTotal >= 4 && passwordTotal <= 40) {
+    console.log("Your password total length is: " + passwordTotal);
+  }
+  else {
+    window.alert("You need to provide a valid number. Please try again. 4-40 Characters");
+    return passwordLength();
+  }
+  
   };
 
+  passwordLength();
 
-generatePassword = function(){
+  /* PASSWORD CRITERIA */
   
-  passwordLength(); 
-
-  // Criteria
   // asks user to select if special characters are wanted in generator
   var confirmSpecCharacters = window.confirm("Would you like to have special characters in your password?");
   if (confirmSpecCharacters === true){
     console.log("You selected to have special characters added to your password.");
+  
+    // *** Idea from Web Dev Simplified ***
+    confirmSpecCharacters = true;
   } else {
     console.log("Got it! No special characters.");
   }
@@ -154,6 +154,8 @@ generatePassword = function(){
   var confirmNumbers = window.confirm("Would you like to have numbers in your password?");
   if (confirmNumbers === true) {
     console.log("You selected to have numbers added to your password.");
+    // *** Idea from Web Dev Simplified ***
+    confirmNumbers = numbers;
   } else {
     console.log("Got it! No numbers.");
   }
@@ -162,6 +164,7 @@ generatePassword = function(){
   var confirmUpperCase = window.confirm("Would you like to have uppercase letters in your password?");
   if (confirmUpperCase === true) {
     console.log("You selected to have uppercase characters added to your password.");
+    confirmUpperCase = upperCase;
   } else {
     console.log("Got it! No uppercase characters.");
   }
@@ -170,21 +173,41 @@ generatePassword = function(){
   var confirmLowerCase = window.confirm("Would you like to have lowercase letters in your password?");
   if (confirmLowerCase === true) {
     console.log("You selected to have lowercase characters added to your password.");
+    confirmLowerCase = lowerCase;
   } else {
     console.log("Got it! No lowercase characters.");
   }
-
+  
   var confirmPassword = window.confirm("Are you ready to receive your password?");
   if (confirmPassword === true) {
     console.log("Here ya go!");
-    /*
-    * function goes here to call completed password
-     */
   } else {
     window.alert("Not a problem, maybe next time!");
   }
 
+ var generator = specialCharacter;
+  if (confirmLowerCase){
+   generator += lowerCase;
+  }
+  if (confirmNumbers) {
+    generator += numbers;
+  }
+  if (confirmUpperCase) {
+    generator += upperCase;
+  }
+
+  var password = [];
+  for (i=0; i < passwordLength.value; i++) {
+    var character = generator[Math.floor() * passwordLength.value];
+    password.push(String.fromCharCode(character));
+    
+  }
+  return password.join('');
+
 };
+  
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -193,7 +216,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  
 
 
   passwordText.value = password;
