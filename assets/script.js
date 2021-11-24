@@ -5,120 +5,24 @@
 // 3. Display password based on criteria
 // 4. Display password to the page. Use return in generatePassword();
 
-/* CHARACTER ARRAYS */
-// uppercase letter array
-var uppercaseLetters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z"
-];
+/* CHARACTERS */
+// uppercase letter
+var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var randomizedUpper = uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
 
-// lowerCase array
-var lowercaseLetters = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z"
+// lowerCase
+var lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+var randomizedLower = lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
 
-];
+// special character
+var specialChar = "!@#$%^&*():;,<.>/?{}[]|\'\"-_+=`~";
+var randomizedSpec = specialChar[Math.floor(Math.random() * specialChar.length)];
 
-// special character array
-var specialChar = [
-  "!",
-  "@",
-  "#",
-  "$",
-  "%",
-  "^",
-  "&",
-  "*",
-  "(",
-  ")",
-  ":",
-  ";",
-  ",",
-  "<",
-  ".",
-  ">",
-  "/",
-  "?",
-  "{",
-  "}",
-  "[",
-  "]",
-  "|",
-  "\\",
-  "'",
-  '"',
-  "-",
-  "_",
-  "+",
-  "=",
-  "`",
-  "~",
-  " "
-];
+// numbers
+var numbers = "1234567890";
+var randomizedNumber = numbers[Math.floor(Math.random() * numbers.length)];
 
-var numbers = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  0
-];
-
-var characters = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+{}|:\"<>?,./;'[]\\";
-
+var characters = [];
 
 /* PROMPTS USER FOR PASSWORD CRITERIA */
 
@@ -129,6 +33,11 @@ var promptCriteria = function() {
   if (confirmSpecCharacters){
     console.log("You selected to have special characters added to your password.");
     confirmSpecCharacters === true;
+
+    // pushes array to characters array to be randomized
+    characters.push(randomizedSpec);
+    console.log(characters);
+
   } else {
     confirmSpecCharacters === false;
     console.log("Got it! No special characters.");
@@ -139,6 +48,11 @@ var promptCriteria = function() {
   if (confirmNumbers) {
     console.log("You selected to have numbers added to your password.");
     confirmNumbers === true;
+
+    // pushes array to characters array to be randomized
+    characters.push(randomizedNumber);
+    console.log(characters);
+
   } else {
     confirmNumbers === false;
     console.log("Got it! No numbers.");
@@ -149,6 +63,11 @@ var promptCriteria = function() {
   if (confirmUpperCase) {
     console.log("You selected to have uppercase characters added to your password.");
     confirmUpperCase === true;
+
+    // pushes array to characters array to be randomized
+    characters.push(randomizedUpper);
+    console.log(characters);
+
   } else {
     confirmUpperCase === false;
     console.log("Got it! No uppercase characters.");
@@ -159,6 +78,11 @@ var promptCriteria = function() {
   if (confirmLowerCase) {
     console.log("You selected to have lowercase characters added to your password.");
     confirmLowerCase === true;
+
+    // pushes array to characters array to be randomized
+    characters.push(randomizedLower);
+    console.log(characters);
+
   } else {
     confirmLowerCase === false;
     console.log("Got it! No lowercase characters.");
@@ -197,16 +121,19 @@ var generatePassword = function(){
   var pass = "";
   
   for (var i=0; i < passwordTotalLength; i++) {
-    var randomNumber = Math.floor(Math.random() * characters.length);
-    pass += characters.substring(randomNumber, randomNumber+1);
-    
+    var randomNumber = characters[Math.floor(Math.random() * characters)];
+    pass += characters.join(randomNumber, randomNumber+1);
   }
-  console.log(pass);
+
   document.getElementById("password").value = pass;
   return pass;
 
 };
 
+// characters.push(numbers);
+// characters.push(specialChar);
+// characters.push(uppercaseLetters);
+// characters.push(lowercaseLetters);
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
