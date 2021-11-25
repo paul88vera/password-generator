@@ -7,22 +7,18 @@
 
 /* CHARACTERS */
 // uppercase letter
-var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var randomizedUpper = uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
+var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U",'V','W','X','Y',"Z"];
 
 // lowerCase
-var lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
-var randomizedLower = lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
+var lowercaseLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
 // special character
-var specialChar = "!@#$%^&*():;,<.>/?{}[]|\'\"-_+=`~";
-var randomizedSpec = specialChar[Math.floor(Math.random() * specialChar.length)];
+var specialChar = ["!","@","#","$","%","^","&","*","(",")",":",";",",","<",".",">","/","?","{","}","[","]","|","\'","\"","-","_","+","=","`","~"];
 
 // numbers
-var numbers = "1234567890";
-var randomizedNumber = numbers[Math.floor(Math.random() * numbers.length)];
+var numbers = ["1","2","3","4","5","6","7","8","9","0"];
 
-var characters = [];
+var characters = [""];
 
 /* PROMPTS USER FOR PASSWORD CRITERIA */
 
@@ -35,7 +31,7 @@ var promptCriteria = function() {
     confirmSpecCharacters === true;
 
     // pushes array to characters array to be randomized
-    characters.push(randomizedSpec);
+    characters.concat(specialChar);
     console.log(characters);
 
   } else {
@@ -50,7 +46,7 @@ var promptCriteria = function() {
     confirmNumbers === true;
 
     // pushes array to characters array to be randomized
-    characters.push(randomizedNumber);
+    characters.concat(numbers);
     console.log(characters);
 
   } else {
@@ -65,7 +61,7 @@ var promptCriteria = function() {
     confirmUpperCase === true;
 
     // pushes array to characters array to be randomized
-    characters.push(randomizedUpper);
+    characters.concat(uppercaseLetters);
     console.log(characters);
 
   } else {
@@ -80,7 +76,7 @@ var promptCriteria = function() {
     confirmLowerCase === true;
 
     // pushes array to characters array to be randomized
-    characters.push(randomizedLower);
+    characters.concat(lowercaseLetters);
     console.log(characters);
 
   } else {
@@ -109,20 +105,17 @@ var generatePassword = function(){
   }
   else if (passwordTotal >= 8 && passwordTotal <= 128) {
     console.log("Your password total length is: " + passwordTotal);
-  }
-  else {
-    window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
     return promptCriteria();
   }
 
-  promptCriteria();
 
   var passwordTotalLength = passwordTotal;
   var pass = "";
   
   for (var i=0; i < passwordTotalLength; i++) {
-    var randomNumber = characters[Math.floor(Math.random() * characters)];
-    pass += characters.join(randomNumber, randomNumber+1);
+    var randomNumber = characters[Math.floor(Math.random() * characters.length)];
+    var pass = characters.push(randomNumber, randomNumber);
+    
   }
 
   document.getElementById("password").value = pass;
