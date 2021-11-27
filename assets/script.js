@@ -20,23 +20,44 @@ var numbers = ["1","2","3","4","5","6","7","8","9","0"];
 
 var characters = [];
 
+/* PROMPT FUNCTION */
+
+
 
 /* GENERATES PASSWORD */
 
 var generatePassword = function(){
 /* PROMPTS USER FOR PASSWORD CRITERIA */
+// var passwordTotal = function() {
+//   var passwordTotal = prompt("How long would you like your password to be? 8 - 128 Characters");
+//   if (passwordTotal <= 8 && passwordTotal >= 128) {
+//     window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
+//     passwordTotal === false;
+//     return passwordTotal();
+//   }
+//   else if (passwordTotal === "" || passwordTotal === null) {
+//     window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
+//     passwordTotal === false;
+//     return passwordTotal();
+//   } 
+//   else {
+//     console.log("Your password total length is: " + passwordTotal);
+//     passwordTotal === true;
+    
+//   }
+// };
+//   passwordTotal();
 
-  var passwordTotal = prompt("How long would you like your password to be? 8 - 128 Characters");
+var passwordTotal = prompt("How long would you like your password to be? 8 - 128 Characters");
+while (passwordTotal <= 8 && passwordTotal >= 128 ) {
   if (passwordTotal === "" || passwordTotal === null) {
     window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
-    passwordPrompt();
+    passwordTotal === false;
+  } 
+  else {
+    console.log("Your password total length is: " + passwordTotal);    
   }
-  else if (passwordTotal >= 8 && passwordTotal <= 128) {
-    console.log("Your password total length is: " + passwordTotal);
-  } else if (!passwordTotal >= 8 && !passwordTotal <= 128) {
-    console.log("Your password total length is: " + passwordTotal);
-    passwordPrompt();
-  }
+};
 
 // asks user to select if special characters are wanted in generator
 var confirmSpecCharacters = window.confirm("Would you like to have special characters in your password?");
@@ -111,13 +132,13 @@ window.alert("Not a problem, maybe next time!");
 var length = passwordTotal;
 var pass = "";
 
-for (let i =0; i < length; i++) {
-  var pass = characters[Math.floor(Math.random() * characters.length)];
+for (let i = 0; i < length; i++) {
+  var randPass = characters[Math.floor(Math.random() * characters.length)];
+  pass += randPass;
   
 };
-  document.getElementById("password").value = pass;
   console.log(pass);
-
+  return pass;
 };
 
 // Get references to the #generate element
@@ -125,11 +146,13 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  characters = [""];
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
+  
 };
 
 // Add event listener to generate button
