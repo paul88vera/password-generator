@@ -28,36 +28,32 @@ var characters = [];
 
 var generatePassword = function(){
 /* PROMPTS USER FOR PASSWORD CRITERIA */
-// var passwordTotal = function() {
-//   var passwordTotal = prompt("How long would you like your password to be? 8 - 128 Characters");
-//   if (passwordTotal <= 8 && passwordTotal >= 128) {
-//     window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
-//     passwordTotal === false;
-//     return passwordTotal();
-//   }
-//   else if (passwordTotal === "" || passwordTotal === null) {
-//     window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
-//     passwordTotal === false;
-//     return passwordTotal();
-//   } 
-//   else {
-//     console.log("Your password total length is: " + passwordTotal);
-//     passwordTotal === true;
-    
-//   }
-// };
-//   passwordTotal();
-
-var passwordTotal = prompt("How long would you like your password to be? 8 - 128 Characters");
-while (passwordTotal <= 8 && passwordTotal >= 128 ) {
+var passTotal = function () {
+  var passwordTotal = prompt("How long would you like your password to be? 8 - 128 Characters");
   if (passwordTotal === "" || passwordTotal === null) {
     window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
-    passwordTotal === false;
+    passTotal();
+  }
+  if (passwordTotal <= 8 && passwordTotal >= 128) {
+    window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
+    passTotal();
   } 
   else {
-    console.log("Your password total length is: " + passwordTotal);    
+    console.log("Your password total length is: " + passwordTotal);
   }
 };
+passTotal();
+// var passwordTotal = prompt("How long would you like your password to be? 8 - 128 Characters");
+// while (passwordTotal <= 8 && passwordTotal >= 128 ) {
+//   if (passwordTotal === "" || passwordTotal === null) {
+//     window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
+//     passwordTotal === false;
+//     var passwordTotal = prompt("How long would you like your password to be? 8 - 128 Characters");
+//   } 
+//   else {
+//     console.log("Your password total length is: " + passwordTotal);    
+//   }
+// };
 
 // asks user to select if special characters are wanted in generator
 var confirmSpecCharacters = window.confirm("Would you like to have special characters in your password?");
