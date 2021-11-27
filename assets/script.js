@@ -26,6 +26,7 @@ while (!passwordTotal) {
   }
   else if (passwordTotal >= 8 && passwordTotal <= 128) {
     window.alert("Your password will be " + passwordTotal + " characters long! Woohoo!");
+    console.log("Your password has a total of: \n" + passwordTotal + " characters")
   } 
   else {
     window.alert("You need to provide a valid number. Please try again. 8 - 128 Characters");
@@ -42,44 +43,44 @@ var confirmSpecCharacters = window.confirm("Would you like to have SPECIAL CHARA
   characters.push(...specialChar);
   } else if (confirmSpecCharacters === false) {
   confirmSpecCharacters === false;
-  console.log("Got it! No special characters.");
+  console.log("Got it! No SPECIAL CHARACTERS.");
   }
 
 // asks user to select if numbers are wanted in generator
 var confirmNumbers = window.confirm("What about NUMBERS?");
   if (confirmNumbers === true) {
-  console.log("You selected to have numbers added to your password.");
+  console.log("You selected to have NUMBERS added to your password.");
   confirmNumbers === true;
   // pushes array to characters array to be randomized
   characters.push(...numbers);
   } else if (confirmNumbers === false) {
   confirmNumbers === false;
-  console.log("Got it! No numbers.");
+  console.log("Got it! No NUMBERS.");
   }
 
 // asks user to select if upperCase letters are wanted in generator
 var confirmUpperCase = window.confirm("How do you feel about UPPERCASE LETTERS?");
   if (confirmUpperCase === true) {
-  console.log("You selected to have uppercase characters added to your password.");
+  console.log("You selected to have UPPERCASE CHARACTERS added to your password.");
   confirmUpperCase === true;
   // pushes array to characters array to be randomized
   characters.push(...uppercaseLetters);
   } else if (confirmUpperCase === false) {
   confirmUpperCase === false;
-  console.log("Got it! No uppercase characters.");
+  console.log("Got it! No UPPERCASE LETTERS.");
   }
 
 // asks user to select if lowercase letters are wanted in generator
 var confirmLowerCase = window.confirm("What about LOWERCASE LETTERS?");
   if (confirmLowerCase === true) {
-  console.log("You selected to have lowercase characters added to your password.");
+  console.log("You selected to have LOWERCASE LETTERS added to your password.");
   confirmLowerCase === true;
 
   // pushes array to characters array to be randomized
   characters.push(...lowercaseLetters);
   } else if (confirmLowerCase === false) {
   confirmLowerCase === false;
-  console.log("Got it! No lowercase characters.");
+  console.log("Got it! No LOWERCASE CHARACTERS.");
   }
 
 var confirmPassword = window.confirm("Are you ready to receive your password?");
@@ -89,6 +90,7 @@ var confirmPassword = window.confirm("Are you ready to receive your password?");
   } else if (confirmPassword === false){
   confirmPassword ===  false;
   window.alert("Not a problem, maybe next time!");
+  return "You know you want a password... Try again!";
   }
 
 // password randomizer & output
