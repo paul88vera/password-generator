@@ -1,5 +1,7 @@
 # Password Generator
 
+![screenshot]()
+
 ## Purpose
 The password generator was built to show my knowledge in loops, arrays, prompts, and validation concepts in JavaScript.
 
